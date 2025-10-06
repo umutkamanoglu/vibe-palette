@@ -1,7 +1,9 @@
 "use client"
-import React, { useState, useEffect, use } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { Loader2, Search, LogOut } from 'lucide-react'
+import { Loader2, Search, LogOut, SkipForward, SkipBac } from 'lucide-react'
+import DashboardCard from '@/components/dashboard/DashboardCard'
+import NowPlayingSection from '@/components/dashboard/NowPlayingSection'
 
 function Dashboard() {
     const router = useRouter()
@@ -125,6 +127,27 @@ function Dashboard() {
                     </button>
                 </div>
             </header>
+
+            <section className='mt-5 grid grid-cols-3 gap-5 max-lg:grid-cols-1'>
+
+                <DashboardCard colSpan={3}>
+                    <h3 className='font-bold text-xl mb-5 max-sm:text-center'>Şu Anda Dinleniyor.</h3>
+                    <NowPlayingSection />
+                </DashboardCard>
+                <DashboardCard colSpan={1}>
+                    card
+                </DashboardCard>
+                <DashboardCard colSpan={1}>
+                    card
+                </DashboardCard>
+                <DashboardCard colSpan={2}>
+                    card
+                </DashboardCard>
+                <DashboardCard colSpan={3}>
+                    card
+                </DashboardCard>
+
+            </section>
         </main>
     )
 }

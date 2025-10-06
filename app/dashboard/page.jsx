@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect, use } from 'react'
 import { useRouter } from 'next/navigation'
-import { Loader2, Home, LogOut } from 'lucide-react'
+import { Loader2, Search, LogOut } from 'lucide-react'
 
 function Dashboard() {
     const router = useRouter()
@@ -66,9 +66,9 @@ function Dashboard() {
     }
 
     return (
-        <main className='bg-gradient-to-tr p-10 max-sm:p-0 py-10 max-sm:py-px from-zinc-900 via-black to-zinc-900 min-h-screen overflow-auto text-white'>
-            <header className='flex h-24 md:flex-row items-start md:items-center justify-between bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 gap-4'>
-                <div className="flex items-center gap-4">
+        <main className='bg-gradient-to-tr p-10 max-sm:p-3 py-10 max-sm:py-px from-zinc-900 via-black to-zinc-900 min-h-screen overflow-auto text-white'>
+            <header className='h-24 bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 max-sm:p-3 border border-gray-800 gap-4 mt-5 flex items-center justify-between'>
+                <div className='flex items-center justify-center gap-4'>
                     {user.images && user.images.length > 0 ? (
                         <img
                             src={user.images[0].url}
@@ -81,7 +81,7 @@ function Dashboard() {
                         </div>
                     )}
                     <div>
-                        <h1 className="text-2xl font-bold text-white">
+                        <h1 className="text-2xl font-bold text-white max-sm:text-xl">
                             Hoş geldin, {user.display_name}
                         </h1>
                         <div className="flex items-center gap-2 text-sm text-gray-400 mt-1">
@@ -104,7 +104,17 @@ function Dashboard() {
                         </div>
                     </div>
                 </div>
+
                 <div className="flex gap-3">
+                    <button
+                        className="flex sm:hidden items-center gap-2 px-4 py-3.5 bg-zinc-200 text-black rounded-lg transition-al hover:scale-105 duration-150 cursor-pointer"
+                    >
+                        <Search className="w-5 h-5" color='#000' />
+                        <span className='max-sm:hidden'>
+                            Çıkış Yap
+                        </span>
+                    </button>
+
                     <button
                         className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-al hover:scale-105 duration-150 cursor-pointer"
                     >

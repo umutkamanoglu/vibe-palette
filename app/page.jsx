@@ -1,6 +1,44 @@
+"use client"
+
+import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Music, Headphones, Radio, Mic2 } from "lucide-react";
 
 export default function Home() {
+  const router = useRouter()
+  const [isChecking, setIsChecking] = useState(true)
+
+  useEffect(() => {
+    // Kullanıcının zaten giriş yapıp yapmadığını kontrol et
+    checkAuth()
+  }, [])
+
+  const checkAuth = async () => {
+    try {
+      const response = await fetch("/api/spotify/me")
+      if (response.ok) {
+        // Kullanıcı zaten giriş yapmış, dashboard'a yönlendir
+        router.push("/dashboard")
+      }
+    } catch (error) {
+      // Giriş yapılmamış, sayfada kal
+    } finally {
+      setIsChecking(false)
+    }
+  }
+
+  const handleLogin = () => {
+    window.location.href = "/api/auth/login"
+  }
+
+  if (isChecking) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-green-500"></div>
+      </div>
+    )
+  }
+
   return (
     <main className="bg-gradient-to-tr p-10 py-10 max-sm:py-px from-zinc-900 via-black to-zinc-900 min-h-screen overflow-auto text-white">
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-16">
@@ -75,6 +113,7 @@ export default function Home() {
               </div>
 
               <button
+                onClick={handleLogin}
                 className="w-full py-4 px-6 max-sm:px-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-lg shadow-green-500/50 flex items-center justify-center gap-3 cursor-pointer"
               >
                 <Music className="w-6 h-6" />

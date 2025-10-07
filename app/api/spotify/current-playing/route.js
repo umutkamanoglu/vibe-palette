@@ -3,7 +3,7 @@ import { cookies } from "next/headers"
 import { SpotifyService } from "@/lib/spotify-service"
 
 export async function GET() {
-    const cookieStore = cookies()
+    const cookieStore = await cookies()
     const accessToken = cookieStore.get("spotify_access_token")?.value
 
     if (!accessToken) {

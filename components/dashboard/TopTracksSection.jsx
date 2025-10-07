@@ -107,10 +107,14 @@ const TopTracksSection = () => {
                 </div>
             ))}
             <div className='flex items-center justify-between mt-5'>
-                <select defaultValue="3" className="cursor-pointer p-2 px-5 bg-gray-800 text-gray-400 rounded-lg max-sm:px-5 sm:px-8t" onChange={(e) => setTopListenCount(e.target.value)} value={topListenCount}>
+                <select
+                    className="cursor-pointer p-2 px-5 bg-gray-800 text-gray-400 rounded-lg max-sm:px-5 sm:px-8t"
+                    onChange={(e) => setTopListenCount(e.target.value)}
+                    value={topListenCount}
+                >
                     <option value="1">1</option>
                     <option value="2">2</option>
-                    <option value="3" selected>3</option>
+                    <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>

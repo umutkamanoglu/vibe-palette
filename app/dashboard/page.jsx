@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { Loader2, Search, LogOut, Headphones, TrendingUp } from 'lucide-react'
 import DashboardCard from '@/components/dashboard/DashboardCard'
 import NowPlayingSection from '@/components/dashboard/NowPlayingSection'
+import TopTracksSection from '@/components/dashboard/TopTracksSection'
 
 function Dashboard() {
     const router = useRouter()
@@ -137,12 +138,11 @@ function Dashboard() {
                     </span>
                     <NowPlayingSection />
                 </DashboardCard>
+
                 <DashboardCard colSpan={2}>
-                    <span className='flex items-center max-sm:justify-center'>
-                        <TrendingUp className='-mt-5 mr-3' color='#00c24d' />
-                        <h3 className='font-bold text-xl mb-5'>En Çok Dinlediğiniz Şarkılar</h3>
-                    </span>
+                    <TopTracksSection />
                 </DashboardCard>
+
                 <DashboardCard colSpan={2}>
                     card
                 </DashboardCard>

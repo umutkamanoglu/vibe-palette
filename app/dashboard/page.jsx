@@ -41,6 +41,15 @@ function Dashboard() {
         }
     }
 
+    const handleLogout = async () => {
+        try {
+            await fetch("/api/auth/logout", { method: "POST" })
+            router.push("/")
+        } catch (error) {
+            console.error("Çıkış yapılamadı:", error)
+        }
+    }
+
     if (isLoading) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
@@ -124,12 +133,10 @@ function Dashboard() {
                         className="flex sm:hidden items-center gap-2 px-4 py-3.5 bg-zinc-200 text-black rounded-lg transition-al hover:scale-105 duration-150 cursor-pointer"
                     >
                         <Search className="w-5 h-5" color='#000' />
-                        <span className='max-sm:hidden'>
-                            Çıkış Yap
-                        </span>
                     </button>
 
                     <button
+                        onClick={handleLogout}
                         className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-al hover:scale-105 duration-150 cursor-pointer"
                     >
                         <LogOut className="w-5 h-5" />

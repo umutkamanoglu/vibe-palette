@@ -60,22 +60,14 @@ const NowPlayingSection = () => {
 
     return (
         <div className='flex gap-6 flex-row max-sm:flex-col items-center justify-center'>
-            <SkipBack className="h-10 w-10 cursor-pointer max-md:hidden hover:scale-105 transition-all duration-200" />
             <div className='max-md:flex max-md:gap-6 max-md:items-center'>
-                <SkipBack className="h-10 w-10 cursor-pointer md:hidden" />
                 <div className='hover:[&_img]:scale-105 transition-all cursor-pointer relative '>
                     <img
                         src={currentTrack.album.images[0]?.url}
                         alt={currentTrack.album.name}
                         className="w-36 h-36 rounded-lg shadow-2xl"
                     />
-                    <div
-                        className='absolute -top-1 -bottom-1 -left-1 -right-1 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity text-white font-semibold text-lg rounded-lg'
-                    >
-                        {isPlaying ? <Pause className='w-12 h-12 bg-green-500 p-2 rounded-full' /> : <Play className='w-12 h-12 bg-green-500 p-2 rounded-full' />}
-                    </div>
                 </div>
-                <SkipForward className="h-10 w-10 cursor-pointer md:hidden" />
             </div>
             <div className="text-center md:text-left">
                 <h2 className="text-3xl font-bold text-white mb-3 line-clamp-2">
@@ -86,7 +78,6 @@ const NowPlayingSection = () => {
                 </p>
                 <p className="text-gray-400">{currentTrack.album.name}</p>
             </div>
-            <SkipForward className="h-10 w-10 cursor-pointer max-md:hidden hover:scale-105 transition-all duration-200" />
         </div>
     )
 }

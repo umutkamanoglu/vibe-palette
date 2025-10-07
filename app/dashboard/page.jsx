@@ -5,6 +5,7 @@ import { Loader2, Search, LogOut, Headphones, TrendingUp } from 'lucide-react'
 import DashboardCard from '@/components/dashboard/DashboardCard'
 import NowPlayingSection from '@/components/dashboard/NowPlayingSection'
 import TopTracksSection from '@/components/dashboard/TopTracksSection'
+import TopArtistsSection from '@/components/dashboard/TopArtistsSection'
 
 function Dashboard() {
     const router = useRouter()
@@ -144,7 +145,7 @@ function Dashboard() {
                 </DashboardCard>
 
                 <DashboardCard colSpan={2}>
-                    card
+                    <TopArtistsSection />
                 </DashboardCard>
                 <DashboardCard colSpan={2}>
                     card

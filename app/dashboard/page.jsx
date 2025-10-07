@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { Loader2, Search, LogOut, Headphones, TrendingUp } from 'lucide-react'
+import { Loader2, Search, LogOut, Headphones, SearchIcon } from 'lucide-react'
 import DashboardCard from '@/components/dashboard/DashboardCard'
 import NowPlayingSection from '@/components/dashboard/NowPlayingSection'
 import TopTracksSection from '@/components/dashboard/TopTracksSection'
@@ -108,6 +108,16 @@ function Dashboard() {
                         </div>
                     </div>
                 </div>
+
+                <form className="max-sm:hidden flex-1 mx-16 relative" method="get">
+                    <input
+                        type="text"
+                        className="bg-gray-900 p-2 px-5 rounded-full focus:outline-none w-full pl-10"
+                        name=""
+                        placeholder='Sanatçı, Şarkı veya Albüm Ara...'
+                    />
+                    <SearchIcon className="w-5 h-5 text-gray-400 absolute top-1/2 left-4 -translate-y-1/2" />
+                </form>
 
                 <div className="flex gap-3">
                     <button

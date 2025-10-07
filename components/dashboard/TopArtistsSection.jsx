@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-import { Users, Eye } from 'lucide-react'
+import { Users, Eye, Pipette } from 'lucide-react'
 
 const TopArtistsSection = () => {
     const [artists, setArtists] = useState([])
@@ -24,6 +24,7 @@ const TopArtistsSection = () => {
             )
             if (response.ok) {
                 const data = await response.json()
+                console.log("umtdataaa", data)
                 setArtists(data.items)
             }
         } catch (error) {
@@ -107,10 +108,15 @@ const TopArtistsSection = () => {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <button className="px-2 py-2 rounded-lg font-medium transition-all bg-green-500 text-white hover:bg-green-600 cursor-pointer flex items-center">
-                    <Eye className='mr-2' size={20} /> Tüm Sanatçıları Görüntüle
+                <button className="p-2 rounded-lg font-medium transition-all bg-green-500 text-white hover:bg-green-600 cursor-pointer flex items-center max-sm:justify-center">
+                    <Pipette className='mr-2' size={20} /> <span className='max-sm:hidden'>Ortak Rengi Bul</span>
+                </button>
+
+                <button className="p-2 rounded-lg font-medium transition-all bg-green-500 text-white hover:bg-green-600 cursor-pointer flex items-center">
+                    <Eye className='mr-2' size={20} /> Tümünü Görüntüle
                 </button>
             </div>
+
         </div>
     )
 }
